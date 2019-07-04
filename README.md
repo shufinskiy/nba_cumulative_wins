@@ -86,6 +86,6 @@ gg <- ggplot(table1, aes(cumrank, group = TeamName, fill = as.factor(TeamName),
 ```
 
 ## Результат
-![](https://cdn.tribuna.com/fetch/?url=https%3A%2F%2Fa.radikal.ru%2Fa06%2F1906%2Fe5%2Fcf815c3f526d.gif)
+![GIF](https://cdn.tribuna.com/fetch/?url=https%3A%2F%2Fa.radikal.ru%2Fa06%2F1906%2Fe5%2Fcf815c3f526d.gif)
 
 Полное описание процесса создания в статье на Хабре
