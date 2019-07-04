@@ -2,7 +2,7 @@
 
 ## Библиотеки
 
-```{r, warning=FALSE, error=FALSE, message=FALSE}
+```r
 library(data.table)
 library(tidyverse)
 library(gganimate)
@@ -13,7 +13,7 @@ library(gganimate)
 ## Работа с данными
 Создаём новые столбцы с количевством побед, рангом в каждом году и отношением к лучшему показателю за год.
 
-```{r, eval=FALSE}
+```r
   table1 <- table1[SeasonID >= as.numeric(paste(2, first_season, sep = "")) 
                    & SeasonID <= as.numeric(paste(2, last_season, sep = ""))][
     ,.(TeamName, WINS)][
@@ -27,7 +27,7 @@ library(gganimate)
 
 Строим графики для каждого сезона с помощью `ggplot2`:
 
-```{r, eval=FALSE}
+```r
 gg <- ggplot(table1, aes(cumrank, group = TeamName, fill = as.factor(TeamName),
                            color = as.factor(TeamName))) + 
     geom_tile(aes(y = CumWins/2,
@@ -64,7 +64,7 @@ gg <- ggplot(table1, aes(cumrank, group = TeamName, fill = as.factor(TeamName),
 ## Анимация
 С помощью функции `{r} transition_states()` создаём анимированный график для каждого года в отдельности.
 
-```{r, eval=FALSE}
+```r
   anim <- gg + transition_states(year, transition_length = 4, state_length = 1) +
     view_follow(fixed_x = TRUE)  +
     labs(title = paste("Cumulative Wins by teams in seasons", 
@@ -79,7 +79,7 @@ gg <- ggplot(table1, aes(cumrank, group = TeamName, fill = as.factor(TeamName),
 
 ## Рендеринг
 
-```{r, eval=FALSE}
+```r
   animate(anim, nframes = (last_season - first_season + 1) * (length(unique(table1$TeamName)) + 20),
           fps = 20,  width = 1200, height = 1000, 
           renderer = gifski_renderer(paste(elements[1], "cumwins.gif", sep = "_")))
