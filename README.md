@@ -88,4 +88,4 @@ gg <- ggplot(table1, aes(cumrank, group = TeamName, fill = as.factor(TeamName),
 ## Результат
 ![GIF](NBA_cumwins.gif)
 
-Полное описание процесса создания в статье на Хабре
+Полное описание процесса создания в статье на [Хабре](https://habr.com/ru/post/458904/)
